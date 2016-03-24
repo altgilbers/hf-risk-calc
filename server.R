@@ -21,6 +21,7 @@ user_data<-read.csv("Pt21.csv", header=T)
 # generate prob data structure, reacting to changes in user input
 prob<-reactive(
 	{
+
 	#validate user input - mulitple need() clauses can be 
 	validate(
 		need(input$CVA!="" && 
@@ -29,7 +30,8 @@ prob<-reactive(
 				input$ATFIB!="" && 
 				input$ICD!="" && 
 				input$Female!="" && 
-				input$NYHA3!="", "Please complete all fields")
+				input$NYHA3!="", 
+			"Please complete all fields")
 	)
 
 	validate(
@@ -38,11 +40,21 @@ prob<-reactive(
 		need(input$SBP>=70 && input$SBP<=200, "Please enter a blood pressure between 70 and 200"),
 		need(input$sodium>=115 && input$sodium<=155, "Please enter a sodium level between 115 and 155")
 	)
+
+	# conditional validation based on selected units
 	validate(
 		need(
 			(input$weight_units=="kg" && input$WEIGHT>=30 && input$WEIGHT<=200) ||
 			(input$weight_units=="lbs" && input$WEIGHT>=66 && input$WEIGHT<=440),
 			"Please select a weight between 30 and 200kg (66 and 440lbs)"
+			)
+	)
+
+	validate(
+		need(
+			(input$creatinine_units=="mg/dl" && input$creatinine<=4.0 && input$creatinine>=0.3) ||
+			(input$creatinine_units=="mmol/L" && input$creatinine<=4.0*76.26 && input$creatinine>=0.3*76.26), 
+			"Please select a creatinine level between 0.3 and 4.0 mg/dl (22.88 and 305.4 mmol/L)"
 			)
 	)
 	
@@ -58,6 +70,7 @@ prob<-reactive(
 	user_data$DIABETES<-if(input$DIABETES=="no") {0} else {1}
     user_data$sodium10<-input$sodium/10
     user_data$WEIGHT10<-if(input$weight_units=="kg") {input$WEIGHT/10} else {input$WEIGHT/10/2.20462}
+    user_data$creatinine<-if(input$creatinine_units=="mg/dl") {input$creatinine} else {input$creatinine/76.26}
     user_data$SBP10<-input$SBP/10
 	
 
