@@ -2,6 +2,7 @@ Title: Hello Shiny!
 Author: Ian Altgilbers
 AuthorUrl: http://www.rstudio.com/
 License: GPL-3
-DisplayMode: Showcase
+#DisplayMode: Showcase
 Tags: getting-started
 Type: Shiny
+
