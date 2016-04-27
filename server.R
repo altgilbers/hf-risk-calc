@@ -119,17 +119,17 @@ output$plot1<-renderPlot(
 # prob() calls the closure than generates table, the first [[1]] gets the table summary
 # the second [[]] is the state column and the final [] is the row of the table
 
-output$year1_hf<-renderText(100*prob()[[1]][[3]][271])
-output$year1_mort<-renderText(100*prob()[[1]][[4]][271])
-output$year1_comp<-renderText(100*(prob()[[1]][[3]][271]+prob()[[1]][[4]][271]))
+output$year1_hf<-renderText(paste(round(100*prob()[[1]][[3]][271],digits=1),"%",sep=""))
+output$year1_mort<-renderText(paste(round(100*prob()[[1]][[4]][271],digits=1),"%",sep=""))
+output$year1_comp<-renderText(paste(round(100*(prob()[[1]][[3]][271]+prob()[[1]][[4]][271]),digits=1),"%",sep=""))
 
-output$year2_hf<-renderText(100*prob()[[1]][[3]][529])
-output$year2_mort<-renderText(100*prob()[[1]][[4]][529])
-output$year2_comp<-renderText(100*(prob()[[1]][[3]][529]+prob()[[1]][[4]][529]))
+output$year2_hf<-renderText(paste(round(100*prob()[[1]][[3]][529],digits=1),"%",sep=""))
+output$year2_mort<-renderText(paste(round(100*prob()[[1]][[4]][529],digits=1),"%",sep=""))
+output$year2_comp<-renderText(paste(round(100*(prob()[[1]][[3]][529]+prob()[[1]][[4]][529]),digits=1),"%",sep=""))
 
-output$year5_hf<-renderText(100*prob()[[1]][[3]][1194])
-output$year5_mort<-renderText(100*prob()[[1]][[4]][1194])
-output$year5_comp<-renderText(100*(prob()[[1]][[3]][1194]+prob()[[1]][[4]][1194]))
+output$year5_hf<-renderText(paste(round(100*prob()[[1]][[3]][1194],digits=1),"%",sep=""))
+output$year5_mort<-renderText(paste(round(100*prob()[[1]][[4]][1194],digits=1),"%",sep=""))
+output$year5_comp<-renderText(paste(round(100*(prob()[[1]][[3]][1194]+prob()[[1]][[4]][1194]),digits=1),"%",sep=""))
 
 
 
