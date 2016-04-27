@@ -8,7 +8,7 @@ yesno=c("","yes","no")
 
 fluidPage(
 
-  titlePanel("HF Risk Calulator"),
+#  titlePanel("HF Risk Calulator"),
 
   sidebarPanel(
 	numericInput('AGE', 'Age',NULL,18,100,step=1),
