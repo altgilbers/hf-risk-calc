@@ -106,9 +106,9 @@ output$plot1<-renderPlot(
 		ylab="Prediction probabilities", 
 		xlab="Follow-up (years)", 
 		legend= c("","",""))
-	legend (0.5, 
-		0.3, 
-		cex=0.6, 
+	legend (0.1, 
+		0.2, 
+		cex=1.2, 
 		c("Alive without HF Hospitalization", "Alive after HF Hospitalization", "Death"), 
 		fill=c("lightgreen", "yellow", "red"), 
 		bg="white")
