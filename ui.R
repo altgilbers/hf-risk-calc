@@ -8,9 +8,10 @@ yesno=c("","yes","no")
 
 fluidPage(
 
-#  titlePanel("HF Risk Calulator"),
+#  titlePanel("HF Risk Calculator"),
 
   sidebarPanel(
+  	h3(a("Reset Values",href=".")),
 	numericInput('AGE', 'Age',NULL,18,100,step=1),
 	selectInput('Female', 'Gender', c("","male","female")),
 	numericInput('LVEF', 'Left Ventricular Ejection Fraction (%)', NULL, 0, 45, step=1),
@@ -25,7 +26,8 @@ fluidPage(
 	numericInput('WEIGHT', 'Weight', NULL,30,200,step=1),
 	selectInput('weight_units', 'Weight units', c("lbs","kg")),
 	numericInput('SBP', 'Systolic Blood Pressure (mmHg)', NULL, 70, 200, step=1),
-	selectInput('ICD', 'Implantable Cardioverter Defibrillator', yesno)
+	selectInput('ICD', 'Implantable Cardioverter Defibrillator', yesno),
+	h3(a("Reset Values",href="."))
   ),
 
   mainPanel(
@@ -33,20 +35,20 @@ fluidPage(
  	h1("Risk Prediction"),
     	div(
  	   h3("One year risk:"),
- 	   p("Heart failure hospitalization: ", textOutput("year1_hf",inline=TRUE)),
- 	   p("All cause mortality: ", textOutput("year1_mort",inline=TRUE)),
+ 	   p("Alive after heart failure hospitalization: ", textOutput("year1_hf",inline=TRUE)),
+ 	   p("All cause mortality (with or without preceding heart failure hospitalization): ", textOutput("year1_mort",inline=TRUE)),
  	   p("Composite of HFH or mortality: ", textOutput("year1_comp",inline=TRUE))
 	),
     	div(
  	   h3("Two year risk:"),
- 	   p("Heart failure hospitalization: ", textOutput("year2_hf",inline=TRUE)),
- 	   p("All cause mortality: ", textOutput("year2_mort",inline=TRUE)),
+ 	   p("Alive after heart failure hospitalization: ", textOutput("year2_hf",inline=TRUE)),
+ 	   p("All cause mortality (with or without preceding heart failure hospitalization): ", textOutput("year2_mort",inline=TRUE)),
  	   p("Composite of HFH or mortality: ", textOutput("year2_comp",inline=TRUE))
 	),
 	div(
  	   h3("Five year risk:"),
- 	   p("Heart failure hospitalization: ", textOutput("year5_hf",inline=TRUE)),
- 	   p("All cause mortality: ", textOutput("year5_mort",inline=TRUE)),
+ 	   p("Alive after heart failure hospitalization: ", textOutput("year5_hf",inline=TRUE)),
+ 	   p("All cause mortality (with or without preceding heart failure hospitalization): ", textOutput("year5_mort",inline=TRUE)),
  	   p("Composite of HFH or mortality: ", textOutput("year5_comp",inline=TRUE))
 	)
   )
